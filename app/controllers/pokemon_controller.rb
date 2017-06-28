@@ -7,15 +7,11 @@ class PokemonController < ApplicationController
     render json: {
       name: body["name"],
       id: body["id"],
-      types: body ["types"]
-      # body["id"]
-      # body["types"]
+      type: body ["types"].map do |type_hash|
+        type_hash["type"]["name"]
+      end
+
     }
 
-
-
- # should be "pikachu"
-    # body ["id"]
-    # body ["types"]
   end
 end
